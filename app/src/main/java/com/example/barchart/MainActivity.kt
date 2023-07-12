@@ -3,14 +3,10 @@ package com.example.barchart
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.ui.Alignment
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import com.example.barchart.ui.theme.BarChartTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +15,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             BarChartTheme {
                 // A surface container using the 'background' color from the theme
-                Column(
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Chart(
+                        data = mapOf(
+
+                            Pair(0.5f,"A"),
+                            Pair(0.5f,"B"),
+                            Pair(0.3f,"C"),
+                            Pair(0.2f,"D"),
+                            Pair(0.1f,"E"),
+
+                            ), max_value = 10
+                    )
+                }
+                /*Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(horizontal = 30.dp),
@@ -39,10 +51,10 @@ class MainActivity : ComponentActivity() {
                         "great Drill",
                         "great Drill",
                         "other drill")
-                    /*dataList.forEachIndexed{index,value->
+                    *//*dataList.forEachIndexed{index,value->
                         floatValue.add(index=index, element =value.toFloat()/dataList.max().toFloat())
 
-                    }*/
+                    }*//*
                     
                     BarChart(
                         chartData = floatValue,
@@ -55,7 +67,7 @@ class MainActivity : ComponentActivity() {
                         barArrangement = Arrangement.SpaceEvenly
                     )
 
-                }
+                }*/
             }
         }
     }
